@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const express = require('express')
 
-const notes = require('./data/db.json')
+const {notes} = require('./data/db.json')
 console.log(notes)
 const { sendFile } = require('express/lib/response')
 
@@ -22,7 +22,7 @@ function createNewNote(body, notesArray) {
     notesArray.push(note)
     fs.writeFileSync(
         path.join(__dirname, './data/db.json'),
-        JSON.stringify({notes: notesArray}, null, 2)
+        JSON.stringify({ notes: notesArray}, null, 2)
     )
     return note
 }

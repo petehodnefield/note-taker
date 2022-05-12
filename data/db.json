@@ -1,12 +1,12 @@
 {
   "notes": [
     {
-      "title": "Test Title",
-      "text": "Test text"
+      "title": "A good idea",
+      "text": "This is my good idea"
     },
     {
-      "name": "yaya",
-      "age": 55
+      "title": "Happy to be here",
+      "text": "Yaya"
     }
   ]
 }

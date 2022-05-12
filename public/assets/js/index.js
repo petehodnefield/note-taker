@@ -37,10 +37,21 @@ const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
-  });
+    body: JSON.stringify(note)
+  })
+  .then(response => {
+    if(response.ok) {
+      return response.json()
+    }
+    alert(`Error! ` + response.statusText)
+  })
+  .then(postData => {
+    console.log(postData)
+    alert("You have added a note!")
+  })
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -98,7 +109,9 @@ const handleNoteDelete = (e) => {
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
+  
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  console.log(activeNote)
   renderActiveNote();
 };
 
