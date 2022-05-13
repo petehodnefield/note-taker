@@ -13,6 +13,7 @@ Requirements:
 - heroku
 
 ## Usage
+<img width="1266" alt="Screen Shot 2022-05-13 at 9 53 34 AM" src="https://user-images.githubusercontent.com/98546095/168310819-1d9216e8-deb7-4700-824e-aa0a5e1a50c4.png">
 
 ## License
 
