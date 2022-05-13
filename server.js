@@ -1,6 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
+'use strict'
+
+const hyperid = require('hyperid')
+const instance = hyperid()
+
+const id = instance()
 
 const {notes} = require('./data/db.json')
 console.log(notes)
@@ -8,6 +14,9 @@ const { sendFile } = require('express/lib/response')
 
 const PORT = process.env.PORT || 3002
 const app = express()
+
+console.log(id)
+
 
 // MIDDLEWARE
 // Parse incoming string or array data
@@ -18,8 +27,18 @@ app.use(express.json())
 app.use(express.static('public'))
 
 function createNewNote(body, notesArray) {
+    body.id = id
     const note = body
-    notesArray.push(note)
+    let newArray = {}
+    newArray = (note)
+    console.log(newArray)
+    notesArray.push(newArray)
+    // notesArray.push(note, identifier)
+    // console.log(notesArray)
+    // const object = JSON.parse(notesArray)
+    // object.id =  id
+    // const newObj = JSON.stringify(obj)
+    // console.log(newObj)
     fs.writeFileSync(
         path.join(__dirname, './data/db.json'),
         JSON.stringify({ notes: notesArray}, null, 2)

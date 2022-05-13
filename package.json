@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "hyperid": "^3.0.1"
   },
   "repository": {
     "type": "git",
